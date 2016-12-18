@@ -1,5 +1,5 @@
 var ship;
-var ball = 10;
+var ball;
 
 function setup() {
   createCanvas(600, 400);
@@ -12,11 +12,13 @@ function draw() {
   ship.show();
   ship.move();
   ball.show();
+  ball.move();
 }
 
 function keyReleased() {
   if (key != ' ') {
     ship.setDir(0);
+    ball.setDir(0);
   }
 }
 
@@ -56,7 +58,7 @@ function Ship() {
 function Ball() { 
   this.x = width/2;
   this.y = height/2;
-  this.xdir=0;
+  this.ydir=0;
   
   this.show = function() {
     fill(255, 0, 200);
@@ -68,11 +70,17 @@ function Ball() {
 }
 
   this.setDir = function(dir) {
-    this.xdir = dir;
+    this.ydir = dir;
   }
   
   this.move = function(dir) {
-    this.x += this.xdir*5;
+    this.y += this.ydir*5;
   }
   
+  //if (ball > height || ball > width || ball < 0) {
+  //  speed = speed *-1;
+  
+  //if (ball > width || ball > height) {
+  //  this.move = ydir*-1)
+  //}
 }
