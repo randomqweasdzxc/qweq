@@ -58,15 +58,11 @@ function Ship() {
 function Ball() { 
   this.x = width/2;
   this.y = height/2;
-  this.ydir=0;
+  this.ydir=1;
   
   this.show = function() {
     fill(255, 0, 200);
     ellipse(this.x, this.y, 40, 40);
-    
-    if (ball > height || ball > width || ball < 0) {
-    speed = speed *-1;
-  }
 }
 
   this.setDir = function(dir) {
@@ -75,12 +71,15 @@ function Ball() {
   
   this.move = function(dir) {
     this.y += this.ydir*5;
+  if (this.y > height) {
+    this.dir = dir *-1;
+  } else if (ball > height || ball > width || ball < 0) {
+    speed = speed *-1;
   }
-  
-  //if (ball > height || ball > width || ball < 0) {
-  //  speed = speed *-1;
-  
+////
   //if (ball > width || ball > height) {
   //  this.move = ydir*-1)
   //}
+ }
 }
+/////// Define ball movement to bounce as the game
